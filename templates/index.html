@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Mark Predictor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #f2f5f9;
+      color: #333;
+    }
+
+    .banner {
+      width: 100%;
+      padding: 0;
+      margin: 0;
+    }
+
+    .banner img {
+  width: auto;
+  display: block;
+  margin: 0 auto;
+  height: 300px;
+  
+}
+
+    .container {
+      max-width: 480px;
+      margin: 40px auto;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .container h2 {
+      color: #1a73e8;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    input[type="number"] {
+      width: 100%;
+      padding: 14px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+
+    button {
+      width: 100%;
+      background-color: #f6b93b;
+      color: white;
+      border: none;
+      padding: 14px;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #ffa000;
+    }
+
+    .prediction {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: 600;
+      color: #388e3c;
+      text-align: center;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 13px;
+      color: #aaa;
+      padding: 20px 0;
+    }
+
+    @media screen and (max-width: 500px) {
+      .container {
+        margin: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="banner">
+    <img src="static/images/student_mark_predictor_banner.png" alt="Student Mark Predictor Banner">
+  </div>
+
+  <div class="container">
+    <h2>Enter Study Hours to Predict Marks</h2>
+    <form action="{{ url_for('predict') }}" method="post">
+      <input type="number" name="study_hours" placeholder="Study Hours" required>
+      <button type="submit">Predict Marks</button>
+    </form>
+    <div class="prediction">{{ prediction_text }}</div>
+  </div>
+
+  <footer>
+    &copy; 2025 Student Mark Predictor App
+  </footer>
+
+</body>
+</html>
